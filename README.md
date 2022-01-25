@@ -4,24 +4,23 @@
 
 ## 時區調整方式
 
-調整環境變數 TZ=Asia/Taipei 可修正時區
+調整環境變數 `TZ=Asia/Taipei` 可修正時區
 
 ```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-...
+  ...
 spec:
-  template:
-    metadata:
-      ...
+  ...
     spec:
       restartPolicy: Always
       containers:
+      - name: debug-tool
         ...
-          env:
-            - name: TZ
-              value: Asia/Taipei
+        env:
+          - name: TZ
+            value: Asia/Taipei
 ```
 
 ## Docker 的使用範例
